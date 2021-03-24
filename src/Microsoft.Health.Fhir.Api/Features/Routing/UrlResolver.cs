@@ -240,6 +240,9 @@ namespace Microsoft.Health.Fhir.Api.Features.Routing
                 case OperationsConstants.Reindex:
                     routeName = RouteNames.GetReindexStatusById;
                     break;
+                case OperationsConstants.BulkImport:
+                    routeName = RouteNames.GetBulkImportStatusById;
+                    break;
                 default:
                     throw new OperationNotImplementedException(string.Format(Resources.OperationNotImplemented, operationName));
             }
