@@ -29,6 +29,10 @@ namespace Microsoft.Health.Fhir.Core.Features.Operations
 
         public const string BulkImport = "import";
 
+        public const string Reset = "reset";
+
         public const string BulkImportContentTypeHeaderValue = "application/json";
+
+        public const string ResetContentTypeHeaderValue = "application/json";
     }
 }

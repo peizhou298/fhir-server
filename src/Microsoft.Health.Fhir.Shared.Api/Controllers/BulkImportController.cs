@@ -94,7 +94,6 @@ namespace Microsoft.Health.Fhir.Api.Controllers
 
         [HttpDelete]
         [Route(KnownRoutes.BulkImportJobLocation, Name = RouteNames.CancelBulkImport)]
-        [ServiceFilter(typeof(ValidateBulkImportRequestFilterAttribute))]
         [AuditEventType(AuditEventSubType.BulkImport)]
         public async Task<IActionResult> CancelBulkImport(string idParameter)
         {

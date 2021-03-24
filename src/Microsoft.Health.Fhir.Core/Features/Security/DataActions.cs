@@ -24,8 +24,9 @@ namespace Microsoft.Health.Fhir.Core.Features.Security
         Reindex = 1 << 6,
         ConvertData = 1 << 7,
         BulkImport = 1 << 8,
+        Reset = 1 << 9,
 
         [EnumMember(Value = "*")]
-        All = (BulkImport << 1) - 1,
+        All = (Reset << 1) - 1,
     }
 }
