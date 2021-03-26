@@ -54,10 +54,10 @@ namespace Microsoft.Health.Fhir.Api.Controllers
         private readonly BulkImportJobConfiguration _bulkImportConfig;
 
         public BulkImportController (
-            IFhirRequestContextAccessor fhirRequestContextAccessor,
-            IOptions<OperationsConfiguration> operationsConfig,
-            IUrlResolver urlResolver,
             IMediator mediator,
+            IFhirRequestContextAccessor fhirRequestContextAccessor,
+            IUrlResolver urlResolver,
+            IOptions<OperationsConfiguration> operationsConfig,
             ILogger<BulkImportController> logger)
         {
             EnsureArg.IsNotNull(fhirRequestContextAccessor, nameof(fhirRequestContextAccessor));
@@ -142,25 +142,25 @@ namespace Microsoft.Health.Fhir.Api.Controllers
             if (importData == null)
             {
                 _logger.LogInformation("Failed to deserialize import request body as import configuration.");
-                throw new RequestNotValidException(Resources.BulkImportRequestConfigurationsNotValid);
+                throw new RequestNotValidException(Resources.BulkImportRequestConfigurationNotValid);
             }
 
             var inputFormat = importData.InputFormat;
             if (!allowedImportFormat.Any(s => s.Equals(inputFormat, StringComparison.OrdinalIgnoreCase)))
             {
-                throw new RequestNotValidException(string.Format(Resources.BulkImportRequestConfigurationNotValid, nameof(inputFormat)));
+                throw new RequestNotValidException(string.Format(Resources.BulkImportRequestConfigurationValueNotValid, nameof(inputFormat)));
             }
 
             var storageDetails = importData.StorageDetail;
             if (storageDetails != null && !allowedStorageType.Any(s => s.Equals(storageDetails.Type, StringComparison.OrdinalIgnoreCase)))
             {
-                throw new RequestNotValidException(string.Format(Resources.BulkImportRequestConfigurationNotValid, nameof(storageDetails)));
+                throw new RequestNotValidException(string.Format(Resources.BulkImportRequestConfigurationValueNotValid, nameof(storageDetails)));
             }
 
             var input = importData.Input;
             if (input == null)
             {
-                throw new RequestNotValidException(string.Format(Resources.BulkImportRequestConfigurationNotValid, nameof(input)));
+                throw new RequestNotValidException(string.Format(Resources.BulkImportRequestConfigurationValueNotValid, nameof(input)));
             }
 
             foreach (var item in input)

@@ -171,22 +171,22 @@ namespace Microsoft.Health.Fhir.Api {
         /// <summary>
         ///   Looks up a localized string similar to Import operation parameters must be specified as an import configuration .  The body provided in this request is not valid..
         /// </summary>
-        public static string BulkImportRequestConfigurationsNotValid
+        public static string BulkImportRequestConfigurationNotValid
         {
             get
             {
-                return ResourceManager.GetString("BulkImportRequestConfigurationsNotValid", resourceCulture);
+                return ResourceManager.GetString("BulkImportRequestConfigurationNotValid", resourceCulture);
             }
         }
 
         /// <summary>
         ///   Looks up a localized string similar to Import does not support the following parameter {0} for a POST operation..
         /// </summary>
-        public static string BulkImportRequestConfigurationNotValid
+        public static string BulkImportRequestConfigurationValueNotValid
         {
             get
             {
-                return ResourceManager.GetString("BulkImportRequestConfigurationNotValid", resourceCulture);
+                return ResourceManager.GetString("BulkImportRequestConfigurationValueNotValid", resourceCulture);
             }
         }
 
